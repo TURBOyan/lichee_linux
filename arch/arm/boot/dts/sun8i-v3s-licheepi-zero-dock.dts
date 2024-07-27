@@ -48,6 +48,16 @@
 	model = "Lichee Pi Zero with Dock";
 	compatible = "licheepi,licheepi-zero-dock", "licheepi,licheepi-zero",
 		     "allwinner,sun8i-v3s";
+
+	soc {
+		ir_gpio: ir-receiver {
+			compatible  = "gpio-ir-receiver";
+			gpios = <&pio 1 5 GPIO_ACTIVE_LOW>; /* PB5 */
+			/*active_low = <1>;*/
+			linux,rc-map-name = "rc-tevii-nec";
+			status = "okay";
+		};
+	};
 };
 
 &codec {

@@ -55,7 +55,7 @@
 
 	leds {
 		/* The LEDs use PG0~2 pins, which conflict with MMC1 */
-		status = "disabled";
+		status = "okay";
 	};
 
 	ir_gpio_rx {
@@ -94,7 +94,7 @@
 	broken-cd;
 	bus-width = <4>;
 	vmmc-supply = <&reg_vcc3v3>;
-	status = "okay";
+	status = "disable";
 };
 
 &lradc {
@@ -130,15 +130,15 @@
 	};
 };
 
-&i2c0 {
-	gt911: touchscreen@14 {
-        compatible = "goodix,gt911";
-        reg = <0x5d>;
-        interrupt-parent = <&pio>;
-        interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>; /* (PB5) */
-        pinctrl-names = "default";
-        irq-gpios = <&pio 1 5 GPIO_ACTIVE_HIGH>; /* (PB5) */
-        reset-gpios = <&pio 2 1 GPIO_ACTIVE_HIGH>; /* RST (PC1) */
-        /* touchscreen-swapped-x-y */
-    };
-};
+// &i2c0 {
+// 	gt911: touchscreen@14 {
+//         compatible = "goodix,gt911";
+//         reg = <0x5d>;
+//         interrupt-parent = <&pio>;
+//         interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>; /* (PB5) */
+//         pinctrl-names = "default";
+//         irq-gpios = <&pio 1 5 GPIO_ACTIVE_HIGH>; /* (PB5) */
+//         reset-gpios = <&pio 2 1 GPIO_ACTIVE_HIGH>; /* RST (PC1) */
+//         /* touchscreen-swapped-x-y */
+//     };
+// };
